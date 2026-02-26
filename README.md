@@ -1,6 +1,29 @@
-# green_buddy
+🌱 Greenbuddy - Plant Watering Assistant
+A simple mobile application designed for people who keep forgetting to water their plants. This app helps you track and manage your plant care schedule with ease, ensuring your green friends stay hydrated.
 
-A new Flutter project.
+This project was developed for the Software Quality Assurance course at Mae Fah Luang University.
+
+✨ Key Features
+
+Watering Reminders: Choose from presets like Daily, Every 2 days, or set your own Custom Frequency.
+
+Growth Timeline: Document your plant's journey by uploading photos to a personal timeline (stored using Base64).
+
+🛠️ Tech Stack
+
+Frontend: Flutter (Dart).
+
+Backend: Firebase (Firestore & Authentication).
+
+Storage: Local Base64 Image Handling.
+
+🚀 How to Run
+
+Clone the repository and run flutter pub get in your terminal.
+
+Make sure your google-services.json is correctly placed in the android/app folder.
+
+Run flutter run to start the app.
 
 ## Getting Started
 

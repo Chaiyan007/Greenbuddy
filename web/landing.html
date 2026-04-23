@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #1e3a1f 50%, #0f5f2d 100%);
             min-height: 100vh;
             color: #333;
             overflow-x: hidden;
@@ -46,10 +46,13 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #2d9d4a, #1e7a35);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .nav-links {
@@ -63,14 +66,11 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
+        }2d9d4a;
         }
 
         .github-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #2d9d4a, #1e7a35);
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -84,23 +84,28 @@
 
         .github-btn:hover {
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(45, 157, 7
+        .github-btn:hover {
+            transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #1e7a35 50%, #0f5f2d 100%);
+            background-attachment: fixed;
             color: white;
             padding: 120px 0 80px;
             margin-top: 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            animation: slideDown 0.8s ease;
+        .hero::before {
+            content: '🌿 🌱 🍃 🌾 🌳';
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
@@ -108,14 +113,14 @@
             margin-bottom: 30px;
             opacity: 0.95;
             animation: slideUp 0.8s ease;
+            position: relative;
+            z-index: 1
+            pointer-events: none;
+            animation: float 15s ease-in-out infinite;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeIn 1s ease 0.3s both;
+            position: relative;
+            z-index: 1;
         }
 
         .btn {
@@ -131,17 +136,56 @@
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            box-shadow: 0 5px 15px rgba(45, 157, 74, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(45, 157, 74, 0.5);
+            background: linear-gradient(135deg, #22c55e, #16a34a);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: white;
+        }
+
+        .btn-app {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+        }
+
+        .btn-app:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(251, 191, 36, 0.4)
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;0fdf4 0%, #dcfce7 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #bbf7d0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 157, 74, 0.2);
+            border-color: #4ade80
             color: white;
             border: 2px solid white;
         }
@@ -160,7 +204,7 @@
         .section-title {
             text-align: center;
             font-size: 48px;
-            margin-bottom: 60px;
+            margin-bottom: 60px;1e7a35 0%, #15803d 50%, #0f5f2d
             color: #333;
         }
 
@@ -186,6 +230,12 @@
         .feature-icon {
             font-size: 50px;
             margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .feature-card h3 {
@@ -200,10 +250,124 @@
         }
 
         /* Technology Stack Section */
-        .tech-stack {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* App Download Section */
+        .app-download {
+            background: white;
             padding: 80px 0;
+            text-align: center;
+        }
+
+        .download-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .download-qr {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #bbf7d0;
+        }
+
+        .download-qr h3 {
+            color: #1e7a35;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .download-buttons-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-download {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-android {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            box-shadow: 0 5px 15px rgba(45, 157, 74, 0.3);
+        }
+
+        .btn-android:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(45, 157, 74, 0.4);
+        }
+
+        .btn-ios {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-ios:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-open-app {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 18px 50px;
+            font-size: 18px;
+        }
+
+        .btn-open-app:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+        }
+
+        .deep-link-info {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .download-section {
+                grid-template-columns: 1fr;
+            }
             text-align: center;
         }
 
@@ -323,11 +487,15 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">🌿 Green Buddy</div>
+                <div class="logo">
+                    <span style="font-size: 32px;">🌿</span>
+                    Green Buddy
+                </div>
                 <ul class="nav-links">
                     <li><a href="#features">ฟีเจอร์</a></li>
                     <li><a href="#tech">เทคโนโลยี</a></li>
-                    <li><a href="https://github.com/yourusername/GreenBuddy" class="github-btn" target="_blank">
+                    <li><a href="#download">ดาวน์โหลด</a></li>
+                    <li><a href="https://github.com/Chaiyan007/Greenbuddy" class="github-btn" target="_blank">
                         ⭐ GitHub
                     </a></li>
                 </ul>
@@ -342,11 +510,14 @@
             <p>ผู้ช่วยส่วนตัวสำหรับการดูแลสวนของคุณ</p>
             <p style="font-size: 16px; opacity: 0.85;">ติดตามการเจริญเติบโตของพืช รับเตือนเรื่องการรดน้ำ และรักษาสวนให้เขียวขจี</p>
             <div class="cta-buttons">
-                <a href="https://github.com/yourusername/GreenBuddy" class="btn btn-primary" target="_blank">
-                    📥 ดาวน์โหลด
-                </a>
-                <a href="https://github.com/yourusername/GreenBuddy" class="btn btn-secondary" target="_blank">
+                <button class="btn btn-primary" onclick="openApp()" style="cursor: pointer; border: none;">
+                    🚀 เปิดแอพเลย
+                </button>
+                <a href="https://github.com/Chaiyan007/Greenbuddy" class="btn btn-secondary" target="_blank">
                     ⭐ ดูบน GitHub
+                </a>
+                <a href="#download" class="btn btn-app">
+                    📥 ดาวน์โหลด
                 </a>
             </div>
         </div>
@@ -386,6 +557,55 @@
                     <div class="feature-icon">🌍</div>
                     <h3>มัลติแพลตฟอร์ม</h3>
                     <p>ใช้ได้บน Android, iOS, Web, Windows, macOS และ Linux</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download" id="download">
+        <div class="container">
+            <h2 class="section-title">📱 ดาวน์โหลดแอพ</h2>
+            <div class="download-section">
+                <div class="download-qr">
+                    <h3>📲 Android</h3>
+                    <div class="qr-code">
+                        <svg viewBox="0 0 200 200" width="100%" height="100%">
+                            <rect width="200" height="200" fill="white"/>
+                            <rect x="20" y="20" width="40" height="40" fill="black"/>
+                            <rect x="140" y="20" width="40" height="40" fill="black"/>
+                            <rect x="20" y="140" width="40" height="40" fill="black"/>
+                            <circle cx="100" cy="100" r="30" fill="#22c55e" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <a href="https://play.google.com/store" class="btn btn-download btn-android" target="_blank">
+                        🤖 Google Play Store
+                    </a>
+                </div>
+                <div class="download-qr">
+                    <h3>🍎 iOS</h3>
+                    <div class="qr-code">
+                        <svg viewBox="0 0 200 200" width="100%" height="100%">
+                            <rect width="200" height="200" fill="white"/>
+                            <rect x="20" y="20" width="40" height="40" fill="black"/>
+                            <rect x="140" y="20" width="40" height="40" fill="black"/>
+                            <rect x="20" y="140" width="40" height="40" fill="black"/>
+                            <circle cx="100" cy="100" r="30" fill="#3b82f6" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <a href="https://apps.apple.com" class="btn btn-download btn-ios" target="_blank">
+                        🍎 App Store
+                    </a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px; text-align: center;">
+                <h3 style="color: #1e7a35; margin-bottom: 20px;">หรือเปิดแอพโดยตรง</h3>
+                <button class="btn btn-open-app" onclick="openApp()" style="cursor: pointer; border: none;">
+                    🚀 เปิดแอพตอนนี้เลย
+                </button>
+                <div class="deep-link-info">
+                    💡 หากคุณลงแอพแล้ว คลิก "เปิดแอพตอนนี้เลย" เพื่อเข้าแอพโดยตรง
                 </div>
             </div>
         </div>
@@ -432,13 +652,47 @@
                 <p>ยวล์ & เลี้ยงดูให้เขียวขจี</p>
             </div>
             <div class="social-links">
-                <a href="https://github.com/yourusername/GreenBuddy" target="_blank">📌 GitHub Repository</a>
-                <a href="https://github.com/yourusername/GreenBuddy/issues" target="_blank">🐛 Report Issues</a>
-                <a href="https://github.com/yourusername/GreenBuddy/discussions" target="_blank">💬 Discussions</a>
+                <a href="https://github.com/Chaiyan007/Greenbuddy" target="_blank">📌 GitHub Repository</a>
+                <a href="https://github.com/Chaiyan007/Greenbuddy/issues" target="_blank">🐛 Report Issues</a>
+                <a href="https://github.com/Chaiyan007/Greenbuddy/discussions" target="_blank">💬 Discussions</a>
             </div>
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #444;">
             <p>&copy; 2026 Green Buddy. All rights reserved. | Made with 💚 using Flutter</p>
         </div>
     </footer>
+
+    <script>
+        function openApp() {
+            // ลองใช้ Deep Link ไปยังแอพ
+            const deepLinks = [
+                'greenbuddy://app',  // Custom Deep Link
+                'intent://app#Intent;scheme=greenbuddy;end',  // Android
+                'greenbuddy://open'
+            ];
+            
+            let linkOpened = false;
+            
+            // พยายามเปิด Deep Link
+            for (let link of deepLinks) {
+                try {
+                    window.location.href = link;
+                    linkOpened = true;
+                    break;
+                } catch(e) {
+                    console.log('Deep link failed: ' + link);
+                }
+            }
+            
+            // ถ้าไม่สำเร็จ แสดงข้อมูล Download
+            if (!linkOpened) {
+                setTimeout(() => {
+                    if (!document.hidden) {
+                        alert('กรุณาลงแอพก่อน:\n\n📱 Android: https://play.google.com/store\n🍎 iOS: https://apps.apple.com');
+                        document.getElementById('download').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>

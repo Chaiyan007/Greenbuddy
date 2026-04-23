@@ -3,696 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Buddy - Your Personal Garden Companion</title>
+    <title>Greenbuddy - Minimal Garden Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #F9FAFB;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-sub: #6B7280;
+            --accent-green: #4ADE80;
+            --border-color: #E5E7EB;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2d5016 0%, #1e3a1f 50%, #0f5f2d 100%);
-            min-height: 100vh;
-            color: #333;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header & Navigation */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
+        /* Nav */
         nav {
+            padding: 32px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #2d9d4a, #1e7a35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }2d9d4a;
-        }
-
-        .github-btn {
-            background: linear-gradient(135deg, #2d9d4a, #1e7a35);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: inline-flex;
+            font-size: 20px;
+            display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .github-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(45, 157, 7
-        .github-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #2d5016 0%, #1e7a35 50%, #0f5f2d 100%);
-            background-attachment: fixed;
-            color: white;
-            padding: 120px 0 80px;
-            margin-top: 60px;
+            padding: 80px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '🌿 🌱 🍃 🌾 🌳';
-            position: relative;
-            z-index: 1;
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 22px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: slideUp 0.8s ease;
-            position: relative;
-            z-index: 1
-            pointer-events: none;
-            animation: float 15s ease-in-out infinite;
+            color: var(--text-sub);
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto 40px;
         }
 
-            position: relative;
-            z-index: 1;
+        /* Action Buttons */
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 60px;
         }
 
         .btn {
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #4ade80, #22c55e);
+            background: var(--text-main);
             color: white;
-            box-shadow: 0 5px 15px rgba(45, 157, 74, 0.3);
+            border: 1px solid var(--text-main);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(45, 157, 74, 0.5);
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            opacity: 0.9;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: white;
+            color: var(--text-main);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
+            background: #F3F4F6;
         }
 
-        .btn-app {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
-        }
-
-        .btn-app:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(251, 191, 36, 0.4)
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;0fdf4 0%, #dcfce7 100%);
+        /* App Preview (Card Style) */
+        .app-mockup {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #bbf7d0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(45, 157, 74, 0.2);
-            border-color: #4ade80
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 48px;
-            margin-bottom: 60px;1e7a35 0%, #15803d 50%, #0f5f2d
-            color: #333;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            margin-bottom: 80px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Technology Stack Section */
-            transition: all 0.3s ease;
-        }
-
-        .tech-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        /* App Download Section */
-        .app-download {
-            background: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .download-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: left;
             margin-top: 40px;
         }
 
-        .download-qr {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            padding: 40px;
-            border-radius: 15px;
-            border: 2px solid #bbf7d0;
-        }
-
-        .download-qr h3 {
-            color: #1e7a35;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .qr-code {
-            width: 250px;
-            height: 250px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-
-        .download-buttons-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .btn-download {
-            padding: 15px 30px;
-            border-radius: 12px;
+        .feature-item h3 {
             font-size: 16px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
+            margin-bottom: 8px;
         }
 
-        .btn-android {
-            background: linear-gradient(135deg, #4ade80, #22c55e);
-            color: white;
-            box-shadow: 0 5px 15px rgba(45, 157, 74, 0.3);
-        }
-
-        .btn-android:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(45, 157, 74, 0.4);
-        }
-
-        .btn-ios {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-ios:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-open-app {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
-            padding: 18px 50px;
-            font-size: 18px;
-        }
-
-        .btn-open-app:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
-        }
-
-        .deep-link-info {
-            text-align: center;
-            color: #666;
-            margin-top: 20px;
+        .feature-item p {
             font-size: 14px;
+            color: var(--text-sub);
         }
 
-        @media (max-width: 768px) {
-            .download-section {
-                grid-template-columns: 1fr;
-            }
-            text-align: center;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .tech-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .tech-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
         }
 
         /* Footer */
         footer {
-            background: #222;
-            color: white;
-            padding: 40px 0;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
             text-align: center;
+            font-size: 13px;
+            color: var(--text-sub);
         }
 
-        .footer-content {
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #764ba2;
-        }
-
-        /* Animations */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
+        @media (max-width: 600px) {
+            .cta-group { flex-direction: column; }
+            .hero h1 { font-size: 32px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <span style="font-size: 32px;">🌿</span>
-                    Green Buddy
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#features">ฟีเจอร์</a></li>
-                    <li><a href="#tech">เทคโนโลยี</a></li>
-                    <li><a href="#download">ดาวน์โหลด</a></li>
-                    <li><a href="https://github.com/Chaiyan007/Greenbuddy" class="github-btn" target="_blank">
-                        ⭐ GitHub
-                    </a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
+<div class="container">
+    <nav>
+        <div class="logo">🌿 Greenbuddy</div>
+        <a href="https://github.com/Chaiyan007/Greenbuddy" class="btn btn-secondary">GitHub</a>
+    </nav>
+
     <section class="hero">
-        <div class="container">
-            <h1>🌱 Green Buddy</h1>
-            <p>ผู้ช่วยส่วนตัวสำหรับการดูแลสวนของคุณ</p>
-            <p style="font-size: 16px; opacity: 0.85;">ติดตามการเจริญเติบโตของพืช รับเตือนเรื่องการรดน้ำ และรักษาสวนให้เขียวขจี</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="openApp()" style="cursor: pointer; border: none;">
-                    🚀 เปิดแอพเลย
-                </button>
-                <a href="https://github.com/Chaiyan007/Greenbuddy" class="btn btn-secondary" target="_blank">
-                    ⭐ ดูบน GitHub
-                </a>
-                <a href="#download" class="btn btn-app">
-                    📥 ดาวน์โหลด
-                </a>
-            </div>
+        <h1>Never forget to water<br>your plants again.</h1>
+        <p>Simple, minimal, and effective tools to keep your home garden thriving.</p>
+        
+        <div class="cta-group">
+            <a href="#" class="btn btn-primary" onclick="openApp()">Open Application</a>
+            <a href="#download" class="btn btn-secondary">Download App</a>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">✨ ฟีเจอร์หลัก</h2>
+        <div class="app-mockup">
+            <div style="text-align: left; margin-bottom: 24px;">
+                <span class="dot"></span><span style="font-size: 12px; color: var(--text-sub); font-weight: 600; text-transform: uppercase;">Core Features</span>
+            </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>ติดตามพืชแบบเรียลไทม์</h3>
-                    <p>ดูแลพืชทั้งหมดของคุณในที่เดียว ติดตามความก้าวหน้า และให้การดูแลที่เหมาะสม</p>
+                <div class="feature-item">
+                    <h3>Real-time Tracking</h3>
+                    <p>Monitor your plant's health and growth progress daily.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>การเตือนการรดน้ำ</h3>
-                    <p>รับการแจ้งเตือนอัตโนมัติสำหรับการรดน้ำตามตารางการดูแลพืช</p>
+                <div class="feature-item">
+                    <h3>Smart Reminders</h3>
+                    <p>Get notified exactly when your plants need water.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📸</div>
-                    <h3>อัพโหลดรูปภาพ</h3>
-                    <p>บันทึกภาพของพืชตามช่วงเวลา เก็บเอกสารสภาพเจริญเติบโต</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔥</div>
-                    <h3>อินเทเกรต Firebase</h3>
-                    <p>คลาวด์บันทึกข้อมูลอย่างปลอดภัย แล้กเข้าจากอุปกรณ์หลายเครื่อง</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>สถิติและรายงาน</h3>
-                    <p>ดูข้อมูลสถิติการเจริญเติบโตและประวัติการดูแลของพืช</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>มัลติแพลตฟอร์ม</h3>
-                    <p>ใช้ได้บน Android, iOS, Web, Windows, macOS และ Linux</p>
+                <div class="feature-item">
+                    <h3>Photo Timeline</h3>
+                    <p>Save memories of your garden's journey over time.</p>
                 </div>
             </div>
         </div>
     </section>
+</div>
 
-    <!-- App Download Section -->
-    <section class="app-download" id="download">
-        <div class="container">
-            <h2 class="section-title">📱 ดาวน์โหลดแอพ</h2>
-            <div class="download-section">
-                <div class="download-qr">
-                    <h3>📲 Android</h3>
-                    <div class="qr-code">
-                        <svg viewBox="0 0 200 200" width="100%" height="100%">
-                            <rect width="200" height="200" fill="white"/>
-                            <rect x="20" y="20" width="40" height="40" fill="black"/>
-                            <rect x="140" y="20" width="40" height="40" fill="black"/>
-                            <rect x="20" y="140" width="40" height="40" fill="black"/>
-                            <circle cx="100" cy="100" r="30" fill="#22c55e" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <a href="https://play.google.com/store" class="btn btn-download btn-android" target="_blank">
-                        🤖 Google Play Store
-                    </a>
-                </div>
-                <div class="download-qr">
-                    <h3>🍎 iOS</h3>
-                    <div class="qr-code">
-                        <svg viewBox="0 0 200 200" width="100%" height="100%">
-                            <rect width="200" height="200" fill="white"/>
-                            <rect x="20" y="20" width="40" height="40" fill="black"/>
-                            <rect x="140" y="20" width="40" height="40" fill="black"/>
-                            <rect x="20" y="140" width="40" height="40" fill="black"/>
-                            <circle cx="100" cy="100" r="30" fill="#3b82f6" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <a href="https://apps.apple.com" class="btn btn-download btn-ios" target="_blank">
-                        🍎 App Store
-                    </a>
-                </div>
-            </div>
-            
-            <div style="margin-top: 60px; text-align: center;">
-                <h3 style="color: #1e7a35; margin-bottom: 20px;">หรือเปิดแอพโดยตรง</h3>
-                <button class="btn btn-open-app" onclick="openApp()" style="cursor: pointer; border: none;">
-                    🚀 เปิดแอพตอนนี้เลย
-                </button>
-                <div class="deep-link-info">
-                    💡 หากคุณลงแอพแล้ว คลิก "เปิดแอพตอนนี้เลย" เพื่อเข้าแอพโดยตรง
-                </div>
-            </div>
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Greenbuddy. Simple tools for better living.</p>
+        <div style="margin-top: 12px;">
+            <a href="https://Chaiyan007.github.io/Greenbuddy/privacy.html" style="color: inherit; margin: 0 10px;">Privacy</a>
+            <a href="https://github.com/Chaiyan007/Greenbuddy/issues" style="color: inherit; margin: 0 10px;">Support</a>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Technology Stack -->
-    <section class="tech-stack" id="tech">
-        <div class="container">
-            <h2 class="section-title">🛠️ เทคโนโลยีที่ใช้</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <strong>Flutter</strong>
-                    <p>3.11.0+</p>
-                </div>
-                <div class="tech-item">
-                    <strong>Dart</strong>
-                    <p>SDK</p>
-                </div>
-                <div class="tech-item">
-                    <strong>Firebase</strong>
-                    <p>Backend</p>
-                </div>
-                <div class="tech-item">
-                    <strong>Cloud Firestore</strong>
-                    <p>Database</p>
-                </div>
-                <div class="tech-item">
-                    <strong>Firebase Auth</strong>
-                    <p>Authentication</p>
-                </div>
-                <div class="tech-item">
-                    <strong>Firebase Storage</strong>
-                    <p>File Storage</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+    function openApp() {
+        window.location.href = 'greenbuddy://app';
+        setTimeout(() => {
+            alert('Please install Greenbuddy app first.');
+        }, 500);
+    }
+</script>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>🌿 Green Buddy</h3>
-                <p>ยวล์ & เลี้ยงดูให้เขียวขจี</p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/Chaiyan007/Greenbuddy" target="_blank">📌 GitHub Repository</a>
-                <a href="https://github.com/Chaiyan007/Greenbuddy/issues" target="_blank">🐛 Report Issues</a>
-                <a href="https://github.com/Chaiyan007/Greenbuddy/discussions" target="_blank">💬 Discussions</a>
-            </div>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #444;">
-            <p>&copy; 2026 Green Buddy. All rights reserved. | Made with 💚 using Flutter</p>
-        </div>
-    </footer>
-
-    <script>
-        function openApp() {
-            // ลองใช้ Deep Link ไปยังแอพ
-            const deepLinks = [
-                'greenbuddy://app',  // Custom Deep Link
-                'intent://app#Intent;scheme=greenbuddy;end',  // Android
-                'greenbuddy://open'
-            ];
-            
-            let linkOpened = false;
-            
-            // พยายามเปิด Deep Link
-            for (let link of deepLinks) {
-                try {
-                    window.location.href = link;
-                    linkOpened = true;
-                    break;
-                } catch(e) {
-                    console.log('Deep link failed: ' + link);
-                }
-            }
-            
-            // ถ้าไม่สำเร็จ แสดงข้อมูล Download
-            if (!linkOpened) {
-                setTimeout(() => {
-                    if (!document.hidden) {
-                        alert('กรุณาลงแอพก่อน:\n\n📱 Android: https://play.google.com/store\n🍎 iOS: https://apps.apple.com');
-                        document.getElementById('download').scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, 1000);
-            }
-        }
-    </script>
 </body>
 </html>

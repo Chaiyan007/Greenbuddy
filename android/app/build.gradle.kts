@@ -5,6 +5,9 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+import java.io.FileInputStream
+import java.util.Properties
+
 android {
     namespace = "com.example.green_buddy"
     compileSdk = flutter.compileSdkVersion
@@ -19,9 +22,25 @@ android {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
+    // Load key.properties
+    val keystoreFile = rootProject.file("key.properties")
+    val keyProperties = Properties()
+    if (keystoreFile.exists()) {
+        keyProperties.load(FileInputStream(keystoreFile))
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = keyProperties.getProperty("keyAlias", "")
+            keyPassword = keyProperties.getProperty("keyPassword", "")
+            storeFile = keyProperties.getProperty("storeFile")?.let { File(it) }
+            storePassword = keyProperties.getProperty("storePassword", "")
+        }
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.green_buddy"
+        applicationId = "com.Chaiyan.green_buddy"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -32,9 +51,7 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 }

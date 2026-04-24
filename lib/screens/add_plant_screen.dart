@@ -14,7 +14,7 @@ class _AddPlantScreenState extends State<AddPlantScreen> {
   final _nameController = TextEditingController();
   final _customDaysController = TextEditingController();
   final FocusNode _customFocusNode = FocusNode();
-  bool _enableReminders = true;
+  final bool _enableReminders = true;
   bool _isSaving = false;
   String _selectedFrequency = 'Every 2 days';
   TimeOfDay _selectedTime = const TimeOfDay(hour: 8, minute: 0);
@@ -214,8 +214,9 @@ class _AddPlantScreenState extends State<AddPlantScreen> {
                   onChanged: (v) {
                     setState(() {
                       _selectedFrequency = v!;
-                      if (_selectedFrequency == 'Custom...')
+                      if (_selectedFrequency == 'Custom...') {
                         _customFocusNode.requestFocus();
+                      }
                     });
                   },
                 ),

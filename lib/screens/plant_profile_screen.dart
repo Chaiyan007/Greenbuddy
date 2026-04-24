@@ -118,10 +118,11 @@ class _PlantProfileScreenState extends State<PlantProfileScreen> {
             .doc(widget.plantId)
             .snapshots(),
         builder: (context, snapshot) {
-          if (!snapshot.hasData)
+          if (!snapshot.hasData) {
             return const Center(
               child: CircularProgressIndicator(color: Colors.green),
             );
+          }
 
           final data = snapshot.data!.data() as Map<String, dynamic>? ?? {};
           final List<dynamic> timelineUpdates = data['timeline_updates'] ?? [];

@@ -128,8 +128,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   .where('userId', isEqualTo: uid)
                   .snapshots(),
               builder: (context, snapshot) {
-                if (snapshot.hasError)
+                if (snapshot.hasError) {
                   return const Center(child: Text('เกิดข้อผิดพลาด'));
+                }
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: CircularProgressIndicator(color: Colors.green),

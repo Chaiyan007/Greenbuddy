@@ -117,10 +117,11 @@ class _EditPlantScreenState extends State<EditPlantScreen> {
           });
       if (mounted) Navigator.pop(context);
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
         );
+      }
     } finally {
       if (mounted) setState(() => _isSaving = false);
     }
@@ -172,7 +173,7 @@ class _EditPlantScreenState extends State<EditPlantScreen> {
             ),
             const SizedBox(height: 10),
             DropdownButtonFormField<String>(
-              value: _selectedFrequency,
+              initialValue: _selectedFrequency,
               items: [
                 'Daily',
                 'Every 2 days',
@@ -182,8 +183,9 @@ class _EditPlantScreenState extends State<EditPlantScreen> {
               onChanged: (v) {
                 setState(() {
                   _selectedFrequency = v!;
-                  if (_selectedFrequency == 'Custom...')
+                  if (_selectedFrequency == 'Custom...') {
                     _customFocusNode.requestFocus();
+                  }
                 });
               },
               decoration: InputDecoration(
